@@ -348,6 +348,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="player" t="Include">
+            <e p="FirstPersonRotate.cs" t="Include" />
+            <e p="TouchField.cs" t="Include" />
+          </e>
           <e p="Test.cs" t="Include" />
         </e>
       </e>
