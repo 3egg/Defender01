@@ -353,6 +353,11 @@
             <e p="TouchField.cs" t="Include" />
           </e>
           <e p="Test.cs" t="Include" />
+          <e p="utils" t="Include">
+            <e p="ExtendUtils.cs" t="Include" />
+            <e p="LoadUtil.cs" t="Include" />
+            <e p="SingletonUtil.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="DefendProject01.sln" t="IncludeFlat" />
