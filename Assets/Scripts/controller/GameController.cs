@@ -1,15 +1,22 @@
 ﻿using System;
+using System.Timers;
 using constant;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using utils;
 
 namespace controller
 {
     public class GameController : MonoBehaviour
     {
-        private AudioSource _audioSource;
-        private Transform _musicBtn;
+        [FormerlySerializedAs("_btnController")]
+        public BtnController btnController;
 
+        [FormerlySerializedAs("_loadController")]
+        public LoadController loadController;
+
+        [FormerlySerializedAs("_audioSource")] public AudioSource audioSource;
         static GameController _instance = null;
 
         public static GameController Instance
@@ -17,37 +24,26 @@ namespace controller
             get { return _instance; }
         }
 
-        private void Start()
-        {
-            _audioSource = GetComponent<AudioSource>();
-            addMusicListener();
-        }
-
-        private void addMusicListener()
-        {
-            _musicBtn = GameObject.Find(Constant.MusicButton).transform;
-            _musicBtn.AddBtnListener(playOrPauseMusic);
-        }
-
-        private void playOrPauseMusic()
-        {
-            if (_audioSource.isPlaying)
-            {
-                _audioSource.Pause();
-            }
-            else
-            {
-                _audioSource.Play();
-            }
-        }
-
         private void Awake()
         {
-            loadInit();
-            donDestory();
+            btnController = GetComponent<BtnController>();
+            loadController = GetComponent<LoadController>();
+            audioSource = GetComponent<AudioSource>();
+            donDestroy();
         }
 
-        private void donDestory()
+        private void Start()
+        {
+            init();
+        }
+
+        public void init()
+        {
+            loadController.loadInit();
+            loadController.loadMusicListener();   
+        }
+
+        private void donDestroy()
         {
             if (_instance != null && _instance != this)
             {
@@ -60,16 +56,6 @@ namespace controller
             }
 
             DontDestroyOnLoad(this.gameObject); //使对象目标在加载新场景时不被自动销毁
-        }
-
-        private static void loadInit()
-        {
-            var player = LoadUtil.Single.loadAndInstaniate(Constant.Player,
-                GameObject.Find(Constant.Player).transform);
-            player.transform.position = Vector3.zero;
-            var touch = LoadUtil.Single.loadAndInstaniate(Constant.TouchField,
-                GameObject.Find(Constant.TouchField).transform);
-            //touch.transform.position = Vector3.zero; // local position
         }
     }
 }

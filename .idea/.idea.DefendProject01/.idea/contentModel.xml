@@ -346,13 +346,24 @@
               </e>
             </e>
           </e>
+          <e p="Timer" t="Include">
+            <e p="Example" t="Include">
+              <e p="TestTimerBehaviour.cs" t="Include" />
+            </e>
+            <e p="Source" t="Include">
+              <e p="Timer.cs" t="Include" />
+              <e p="TimerExtensions.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="constant" t="Include">
             <e p="Constant.cs" t="Include" />
           </e>
           <e p="controller" t="Include">
+            <e p="BtnController.cs" t="Include" />
             <e p="GameController.cs" t="Include" />
+            <e p="LoadController.cs" t="Include" />
             <e p="MusicController.cs" t="Include" />
           </e>
           <e p="player" t="Include">
