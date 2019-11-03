@@ -15,10 +15,11 @@
         public const string ImgObj = "ImgObj";
         public const string VideoObj = "VideoObj";
         public const string Clone = "(Clone)";
-        public const string First01 = "First01";
-        public const string Second02 = "Second02";
+        public const string First = "First01";
+        public const string Second = "Second02";
         public const string Image = "Image";
         public const string Video = "Video";
+        public const string Music = "Music";
         public const string Word = "Word";
         public const string Close = "Close";
         

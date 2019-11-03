@@ -28,6 +28,7 @@ namespace controller
         private GameObject _sceneLoadImg;
         private GameObject _imgObj;
         private GameObject _videoObj;
+        private MusicPlayer _musicPlayer;
 
         public static GameController Instance
         {
@@ -85,15 +86,19 @@ namespace controller
             closeTran.AddBtnListener(() =>
             {
                 _imgObj.SetActive(false);
-                
+
                 if (!_audioSource.isPlaying) pauseOrPlay();
 
                 setRaycasTarget(true);
             });
-            var text = Resources.Load(Constant.Word + "/" + "Text" + strs[1]) as TextAsset;
+            //str[0] image or video str[1] first second  str[2] index
+            var text = Resources.Load(Constant.Word + "/" + strs[1] + "/" + "Text" + strs[2]) as TextAsset;
             _imgObj.GetComponentInChildren<Text>().text = text != null ? text.text : "";
             _imgObj.GetComponentInChildren<Image>().sprite =
-                Resources.Load<Sprite>(Constant.Image + "/" + strs[0] + strs[1]);
+                Resources.Load<Sprite>(Constant.Image + "/" + strs[1] + "/" + strs[0] + strs[2]);
+            _musicPlayer = _imgObj.GetComponentInChildren<MusicPlayer>();
+            _musicPlayer.SetAudioClip(Resources.Load(Constant.Music + "/" + strs[1] + "/" + strs[2]) as AudioClip);
+            //_musicPlayer.PlayAudioClip();
         }
 
         private void setRaycasTarget(bool isTouch)
