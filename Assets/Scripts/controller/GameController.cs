@@ -10,6 +10,7 @@ using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using utils;
 
 namespace controller
@@ -59,7 +60,7 @@ namespace controller
                 {
                     var tran = hitInfo.transform;
                     if (tran.name.Equals("Plane")) return;
-                    //strs格式为 Image-1 或者 Video-1. 通过不同的名称打开不同的对象
+                    //strs格式为 Image-First-1 或者 Video-First-1. 通过不同的名称打开不同的对象
                     var strs = tran.name.Split('-');
                     switch (strs[0])
                     {
@@ -67,6 +68,10 @@ namespace controller
                             clickImage(strs);
                             break;
                         case Constant.Video:
+                            clickVideo(strs);
+                            break;
+                        case Constant.Scene:
+                            clickArrowToScene(strs);
                             break;
                         default:
                             break;
@@ -75,30 +80,48 @@ namespace controller
             }
         }
 
+        private void clickArrowToScene(string[] strs)
+        {
+            loadScene(strs[1]);
+        }
+        private void clickVideo(string[] strs)
+        {
+            setClickOption(_videoObj);
+            var pause = _videoObj.GetComponent<VideoController>().pause;
+            _videoObj.GetComponentsInChildren<Button>().First(t => t.name.Equals("Button")).GetComponent<Image>()
+                .sprite = pause;
+            var clip = Resources.Load(Constant.Video + "/" + strs[1] + "/" + strs[2]) as VideoClip;
+            _videoObj.GetComponentInChildren<VideoPlayer>().clip = clip;
+        }
+
+
         private void clickImage(string[] strs)
         {
-            if (_audioSource.isPlaying) pauseOrPlay();
-
-            setRaycasTarget(false);
-            _imgObj.SetActive(true);
-            var closeTran = _imgObj.GetComponentsInChildren<Image>()
-                .First(t => t.name.Equals(Constant.Close)).transform;
-            closeTran.AddBtnListener(() =>
-            {
-                _imgObj.SetActive(false);
-
-                if (!_audioSource.isPlaying) pauseOrPlay();
-
-                setRaycasTarget(true);
-            });
+            setClickOption(_imgObj);
             //str[0] image or video str[1] first second  str[2] index
             var text = Resources.Load(Constant.Word + "/" + strs[1] + "/" + "Text" + strs[2]) as TextAsset;
             _imgObj.GetComponentInChildren<Text>().text = text != null ? text.text : "";
             _imgObj.GetComponentInChildren<Image>().sprite =
                 Resources.Load<Sprite>(Constant.Image + "/" + strs[1] + "/" + strs[0] + strs[2]);
             _musicPlayer = _imgObj.GetComponentInChildren<MusicPlayer>();
-            _musicPlayer.SetAudioClip(Resources.Load(Constant.Music + "/" + strs[1] + "/" + strs[2]) as AudioClip);
-            //_musicPlayer.PlayAudioClip();
+            _musicPlayer.audioClips[0] = Resources.Load(Constant.Music + "/" + strs[1] + "/" + strs[2]) as AudioClip;
+        }
+
+        private void setClickOption(GameObject obj)
+        {
+            if (_audioSource.isPlaying) pauseOrPlay();
+            setRaycasTarget(false);
+            obj.SetActive(true);
+            var closeTran = obj.GetComponentsInChildren<Image>()
+                .First(t => t.name.Equals(Constant.Close)).transform;
+            closeTran.AddBtnListener(() =>
+            {
+                obj.SetActive(false);
+
+                if (!_audioSource.isPlaying) pauseOrPlay();
+
+                setRaycasTarget(true);
+            });
         }
 
         private void setRaycasTarget(bool isTouch)

@@ -19,6 +19,7 @@
         public const string Second = "Second02";
         public const string Image = "Image";
         public const string Video = "Video";
+        public const string Scene = "Scene";
         public const string Music = "Music";
         public const string Word = "Word";
         public const string Close = "Close";
