@@ -203,6 +203,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &244159007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244159008}
+  - component: {fileID: 244159009}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &244159008
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244159007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 263226449}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &244159009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244159007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedef3e164ee4f289b5a6943f108f757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemSize: {x: 1920, y: 1080}
+  ItemSprites:
+  - {fileID: 21300000, guid: 79d23b1ec3243cb4583ccb0bed465cce, type: 3}
+  - {fileID: 21300000, guid: 975a11cef2e69014ca71998dc780e64e, type: 3}
+  - {fileID: 21300000, guid: c45947e2f81f11240b3d3a2cffa5c250, type: 3}
+  - {fileID: 21300000, guid: 493edcc010f4200459915de92e50288f, type: 3}
+  Offset: 0
+  ScaleTimesMin: 0.5
+  ScaleTimesMax: 1
 --- !u!1 &263226445
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +352,7 @@ RectTransform:
   m_Children:
   - {fileID: 386571332}
   - {fileID: 567735984}
+  - {fileID: 244159008}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -314,6 +372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VideoObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391254509892823162, guid: 2e79dbe51f70f294ca45c27b2ce52e3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1391254509892823163, guid: 2e79dbe51f70f294ca45c27b2ce52e3e,
         type: 3}
