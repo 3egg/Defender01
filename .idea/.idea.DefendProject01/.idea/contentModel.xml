@@ -425,6 +425,9 @@
               <e p="TimerExtensions.cs" t="Include" />
             </e>
           </e>
+          <e p="VideoPlayerControl" t="Include">
+            <e p="VideoProgressBar.cs" t="Include" />
+          </e>
         </e>
         <e p="Resources" t="Include">
           <e p="Word" t="Include">
@@ -440,14 +443,16 @@
           <e p="controller" t="Include">
             <e p="BtnController.cs" t="Include" />
             <e p="GameController.cs" t="Include" />
-            <e p="LoadController.cs" t="Include" />
             <e p="MusicController.cs" t="Include" />
+            <e p="VideoController.cs" t="Include" />
+          </e>
+          <e p="Menu" t="Include">
+            <e p="MenuController.cs" t="Include" />
           </e>
           <e p="player" t="Include">
             <e p="FirstPersonRotate.cs" t="Include" />
             <e p="TouchField.cs" t="Include" />
           </e>
-          <e p="Test.cs" t="Include" />
           <e p="utils" t="Include">
             <e p="ExtendUtils.cs" t="Include" />
             <e p="LoadUtil.cs" t="Include" />
