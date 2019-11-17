@@ -446,6 +446,11 @@
             <e p="MusicController.cs" t="Include" />
             <e p="VideoController.cs" t="Include" />
           </e>
+          <e p="Menu" t="Include">
+            <e p="MenuController.cs" t="Include" />
+            <e p="RotationDiagram2D.cs" t="Include" />
+            <e p="RotationDiagramItem.cs" t="Include" />
+          </e>
           <e p="player" t="Include">
             <e p="FirstPersonRotate.cs" t="Include" />
             <e p="TouchField.cs" t="Include" />

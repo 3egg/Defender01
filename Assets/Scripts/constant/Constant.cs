@@ -23,7 +23,11 @@
         public const string Music = "Music";
         public const string Word = "Word";
         public const string Close = "Close";
-        
-        
+        public const string VideoButtons = "VideoButtons";
+        public const string ReturnButton = "ReturnButton";
+        public const string GameInfo = "GameInfo";
+        public const string Images = "Images";
+
+
     }
 }
